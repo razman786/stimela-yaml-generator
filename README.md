@@ -20,19 +20,19 @@ This project extracts Stimela-compatible YAML schemas from CASA task Python wrap
 ### Generate YAML for a CASA Python task:
 
 ```bash
-python generate_stimela_yaml.py applycal.py
+python generate_stimela_casa_cab.py applycal.py
 ```
 
 ### Validate YAML against online CASA XML documentation:
 
 ```bash
-python generate_stimela_yaml.py applycal.py --validate-online
+python generate_stimela_casa_cab.py applycal.py --validate-online
 ```
 
 ### Fix missing descriptions using CASA XML documentation
 
 ```bash
-python generate_stimela_yaml.py applycal.py --fix-description
+python generate_stimela_casa_cab.py applycal.py --fix-description
 ```
 
 ## 🧪 Running Tests
