@@ -1,0 +1,111 @@
+cabs:
+  applycal:
+    inputs:
+      vis:
+        dtype: File
+        default: ''
+        required: false
+        info: "Name of input visibility file"
+      field:
+        dtype: str
+        default: ''
+        required: false
+        info: "Select field using field id(s) or field name(s)"
+      spw:
+        dtype: str
+        default: ''
+        required: false
+        info: "Select spectral window/channels"
+      intent:
+        dtype: str
+        default: ''
+        required: false
+        info: "Select observing intent"
+      selectdata:
+        dtype: bool
+        default: true
+        required: false
+        info: "Other data selection parameters"
+      timerange:
+        dtype: str
+        default: ''
+        required: false
+        info: "Select data based on time range"
+      uvrange:
+        dtype: Any
+        default: ''
+        required: false
+        info: "Select data within uvrange (default units meters)"
+      antenna:
+        dtype: str
+        default: ''
+        required: false
+        info: "Select data based on antenna/baseline"
+      scan:
+        dtype: str
+        default: ''
+        required: false
+        info: "Scan number range"
+      observation:
+        dtype: Any
+        default: ''
+        required: false
+        info: "Select by observation ID(s)"
+      msselect:
+        dtype: str
+        default: ''
+        required: false
+        info: "Optional complex data selection (ignore for now)"
+      docallib:
+        dtype: bool
+        default: false
+        required: false
+        info: "Control means of specifying the caltables"
+      callib:
+        dtype: str
+        default: ''
+        required: false
+        info: "Cal Library filename"
+      gaintable:
+        dtype: List[File]
+        default: []
+        required: false
+        info: "Gain calibration table(s) to apply on the fly"
+      gainfield:
+        dtype: List[str]
+        default: []
+        required: false
+        info: "Select a subset of calibrators from gaintable(s)"
+      interp:
+        dtype: List[str]
+        default: []
+        required: false
+        info: "Interpolation parmameters (in time[,freq]) for each gaintable, as a\
+          \ list of strings."
+      spwmap:
+        dtype: Any
+        default: []
+        required: false
+        info: "Spectral windows combinations to form for gaintables(s)"
+      calwt:
+        dtype: List[bool]
+        default:
+        - true
+        required: false
+        info: "Calibrate data weights per gaintable."
+      parang:
+        dtype: bool
+        default: false
+        required: false
+        info: "Apply parallactic angle correction"
+      applymode:
+        dtype: str
+        default: ''
+        required: false
+        info: "Calibration apply mode"
+      flagbackup:
+        dtype: bool
+        default: true
+        required: false
+        info: "Automatically back up the state of flags before the run?"
+    outputs: {}

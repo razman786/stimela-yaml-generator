@@ -1,0 +1,161 @@
+cabs:
+  deconvolve:
+    inputs:
+      imagename:
+        dtype: Any
+        default: ''
+        required: false
+        info: "Pre-name of input and output images"
+      startmodel:
+        dtype: Any
+        default: ''
+        required: false
+        info: "Name of starting model image"
+      deconvolver:
+        dtype: str
+        default: hogbom
+        required: false
+        info: "Name of minor cycle algorithm (hogbom,clark,multiscale,mem,clarkstokes,asp)"
+      scales:
+        dtype: Any
+        default: []
+        required: false
+        info: "List of scale sizes (in pixels) for multi-scale and mtmfs algorithms."
+      nterms:
+        dtype: int
+        default: 2
+        required: false
+        info: "Number of Taylor coefficients in the spectral model"
+      smallscalebias:
+        dtype: float
+        default: 0.0
+        required: false
+        info: "A numerical control to bias the scales when using multi-scale or mtmfs\
+          \ algorithms."
+      fusedthreshold:
+        dtype: float
+        default: 0.0
+        required: false
+        info: "g Hogbom Clean (number in units of Jy)"
+      largestscale:
+        dtype: int
+        default: -1
+        required: false
+        info: "s) allowed for the initial guess for the Asp Clean deconvolver."
+      restoration:
+        dtype: bool
+        default: true
+        required: false
+        info: "."
+      restoringbeam:
+        dtype: Any
+        default: []
+        required: false
+        info: "ze to use."
+      niter:
+        dtype: int
+        default: 100
+        required: false
+        info: "Maximum number of iterations"
+      gain:
+        dtype: float
+        default: 0.1
+        required: false
+        info: "Loop gain"
+      threshold:
+        dtype: Any
+        default: 0.0
+        required: false
+        info: "The minor cycle's stopping threshold (number in units of Jy, or string)"
+      nsigma:
+        dtype: float
+        default: 0.0
+        required: false
+        info: "Multiplicative factor for rms-based threshold stopping"
+      interactive:
+        dtype: bool
+        default: false
+        required: false
+        info: "Modify masks and parameters at runtime"
+      fullsummary:
+        dtype: bool
+        default: false
+        required: false
+        info: "Return dictionary with complete convergence history"
+      fastnoise:
+        dtype: bool
+        default: true
+        required: false
+        info: "mask (user='multi-autothresh') and/or n-sigma stopping threshold"
+      usemask:
+        dtype: str
+        default: user
+        required: false
+        info: "Type of mask(s) to be used for deconvolution"
+      mask:
+        dtype: Any
+        default: ''
+        required: false
+        info: "Mask (a list of image name(s) or region file(s) or region string(s)"
+      pbmask:
+        dtype: float
+        default: 0.0
+        required: false
+        info: "Sub-parameter for usemask: primary beam mask"
+      sidelobethreshold:
+        dtype: float
+        default: 3.0
+        required: false
+        info: ""
+      noisethreshold:
+        dtype: float
+        default: 5.0
+        required: false
+        info: "Sub-parameter for \"auto-multithresh\": mask threshold based on the\
+          \ noise level:"
+      lownoisethreshold:
+        dtype: float
+        default: 1.5
+        required: false
+        info: ""
+      negativethreshold:
+        dtype: float
+        default: 0.0
+        required: false
+        info: ""
+      smoothfactor:
+        dtype: float
+        default: 1.0
+        required: false
+        info: "Sub-parameter for \"auto-multithresh\": smoothing factor in a unit\
+          \ of the beam"
+      minbeamfrac:
+        dtype: float
+        default: 0.3
+        required: false
+        info: "Sub-parameter for \"auto-multithresh\": minimum beam fraction in size\
+          \ to prune masks smaller than mimbeamfrac * beam"
+      cutthreshold:
+        dtype: float
+        default: 0.01
+        required: false
+        info: "Sub-parameter for \"auto-multithresh\": threshold to cut the smoothed\
+          \ mask to create a final mask:"
+      growiterations:
+        dtype: int
+        default: 75
+        required: false
+        info: "Sub-parameter for \"auto-multithresh\": Maximum number of iterations\
+          \ to perform using binary dilation for growing the mask"
+      dogrowprune:
+        dtype: bool
+        default: true
+        required: false
+        info: "Experimental sub-parameter for \"auto-multithresh\": Do pruning on\
+          \ the grow mask"
+      verbose:
+        dtype: bool
+        default: false
+        required: false
+        info: "he summary of automasking at the end of each automasking process"
+    outputs: {}
