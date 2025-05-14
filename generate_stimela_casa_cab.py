@@ -475,42 +475,6 @@ def fuzzy_match(norm_local, norm_xml):
 
     return False
 
-# def fuzzy_match(norm_local, norm_xml):
-#     """
-#     Returns True if the local and XML default values are functionally equivalent.
-
-#     Handles:
-#     - constructor strings like int(10), float(0.1)
-#     - numpy.array([...]) with int/float constructor wrapping
-#     - empty vs non-empty bool lists
-#     """
-
-#     # Exact match
-#     if norm_local == norm_xml:
-#         return True
-
-#     # Scalar int/float vs constructor string
-#     if isinstance(norm_local, (int, float)) and isinstance(norm_xml, str):
-#         expected = f"{type(norm_local).__name__}({norm_local})"
-#         return norm_xml == expected
-
-#     # Bool list vs empty
-#     if isinstance(norm_local, list) and isinstance(norm_xml, list):
-#         if all(isinstance(x, bool) for x in norm_local + norm_xml):
-#             return norm_local == [] or norm_xml == []
-
-#     # List vs numpy.array-style string
-#     if isinstance(norm_local, list) and isinstance(norm_xml, str):
-#         try:
-#             clean = re.sub(r"(numpy\.array\(|\))", "", norm_xml)
-#             clean = re.sub(r"(int|float)\((.*?)\)", r"\2", clean)
-#             xml_list = [int(x.strip()) if x.strip().isdigit() else float(x.strip()) for x in clean.split(",")]
-#             return norm_local == xml_list
-#         except:
-#             return False
-
-#     return False
-
 
 def validate_against_xml(task_name, inputs):
     """
@@ -557,55 +521,6 @@ def validate_against_xml(task_name, inputs):
             default_match = "✓"
         else:
             default_match = "✗"
-        # if norm_local == norm_xml:
-        #     default_match = "✓"
-        # # Fuzzy match for scalar types like int(5), float(0.1)
-        # elif isinstance(norm_local, (int, float)) and isinstance(norm_xml, str):
-        #     if f"{type(norm_local).__name__}({norm_local})" == norm_xml:
-        #         default_match = "✓"
-        # # Fuzzy match for boolean lists vs empty
-        # elif isinstance(norm_local, list) and isinstance(norm_xml, list):
-        #     if all(isinstance(x, bool) for x in norm_local) and norm_xml == []:
-        #         default_match = "✓"
-        #     elif all(isinstance(x, bool) for x in norm_xml) and norm_local == []:
-        #         default_match = "✓"
-        #     else:
-        #         default_match = "✗"
-        # # Fuzzy match for CASA-style numpy arrays
-        # elif isinstance(norm_local, list) and isinstance(norm_xml, str):
-        #     try:
-        #         clean = re.sub(r"(numpy\.array\(|\))", "", norm_xml)
-        #         clean = re.sub(r"(int|float)\((.*?)\)", r"\2", clean)
-        #         xml_list = [int(x.strip()) if x.strip().isdigit() else float(x.strip()) for x in clean.split(",")]
-        #         if norm_local == xml_list:
-        #             default_match = "✓"
-        #         else:
-        #             default_match = "✗"
-        #     except:
-        #         default_match = "✗"
-        # # Fallback
-        # else:
-        #     default_match = "✗"
-        # elif isinstance(norm_local, list) and isinstance(norm_xml, list):
-
-        #     def is_uniform_type(lst, t):
-        #         return all(isinstance(x, t) for x in lst)
-
-        #     if norm_local == [] or norm_xml == []:
-        #         if is_uniform_type(norm_local or norm_xml, bool):
-        #             default_match = "✓"
-        #         elif is_uniform_type(norm_local or norm_xml, int):
-        #             default_match = "✓"
-        #         elif is_uniform_type(norm_local or norm_xml, float):
-        #             default_match = "✓"
-        #         elif is_uniform_type(norm_local or norm_xml, str):
-        #             default_match = "✓"
-        #         else:
-        #             default_match = "✗"
-        #     else:
-        #         default_match = "✗"
-        # else:
-        #     default_match = "✗"
 
         local_info = local.get("info", "").strip()
         xml_desc = xml["description"].strip()
