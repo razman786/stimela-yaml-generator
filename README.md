@@ -61,6 +61,7 @@ pip install -r requirements.txt
 ```
 
 ## 📝 Directory Structure
+```bash
 .
 ├── generate_stimela_casa_cab.py     # Main CLI script
 ├── requirements.txt
@@ -68,6 +69,7 @@ pip install -r requirements.txt
 │   ├── test_tasks.py            # Test suite
 │   ├── fixtures/                # CASA task .py files
 │   └── expected/                # Reference YAML files (optional)
+```
 
 ## 📖 References
 
