@@ -336,6 +336,23 @@ def extract_yaml(filepath):
         elif dtype == "bool" and "list of booleans" in info_text:
             dtype = "Union[bool, List[bool]]"
 
+        # Stimela dtype overrides based on param names or docstring
+        param_lower = param.lower()
+        info_text = parsed.get("info", "").lower()
+
+        # Handle 'ms' dtype for measurement sets
+        if param_lower in ("vis", "ms", "observation", "dataset", "measurementset"):
+            dtype = "ms"
+        elif "measurement set" in info_text or "ms file" in info_text:
+            dtype = "ms"
+        # Handle 'File' dtype for file-like inputs and outputs
+        elif any(key in param_lower for key in ("image", "imagename", "model", "mask", "file", "fits", "outfile", "output")):
+            dtype = "File"
+        elif any(phrase in info_text for phrase in (
+            "fits file", "image file", "file path", "mask image", "input file", "output file", "file name", "image name"
+        )):
+            dtype = "File"
+
         inputs[param] = {
             'dtype': dtype,
             'default': default,
