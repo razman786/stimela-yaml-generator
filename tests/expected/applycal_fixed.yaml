@@ -2,7 +2,7 @@ cabs:
   applycal:
     inputs:
       vis:
-        dtype: File
+        dtype: MS
         default: ''
         required: false
         info: "Name of input visibility file"
@@ -47,7 +47,7 @@ cabs:
         required: false
         info: "Scan number range"
       observation:
-        dtype: Any
+        dtype: MS
         default: ''
         required: false
         info: "Select by observation ID(s)"

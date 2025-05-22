@@ -2,12 +2,12 @@ cabs:
   deconvolve:
     inputs:
       imagename:
-        dtype: Any
+        dtype: File
         default: ''
         required: false
         info: "Pre-name of input and output images"
       startmodel:
-        dtype: Any
+        dtype: File
         default: ''
         required: false
         info: "Name of starting model image"
@@ -93,7 +93,7 @@ cabs:
         required: false
         info: "Type of mask(s) to be used for deconvolution"
       mask:
-        dtype: Any
+        dtype: File
         default: ''
         required: false
         info: "Mask (a list of image name(s) or region file(s) or region string(s)"
