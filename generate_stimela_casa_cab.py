@@ -342,9 +342,9 @@ def extract_yaml(filepath):
 
         # Handle 'ms' dtype for measurement sets
         if param_lower in ("vis", "ms", "observation", "dataset", "measurementset"):
-            dtype = "ms"
+            dtype = "MS"
         elif "measurement set" in info_text or "ms file" in info_text:
-            dtype = "ms"
+            dtype = "MS"
         # Handle 'File' dtype for file-like inputs and outputs
         elif any(key in param_lower for key in ("image", "imagename", "model", "mask", "file", "fits", "outfile", "output")):
             dtype = "File"
