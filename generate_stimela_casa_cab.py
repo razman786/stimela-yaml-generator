@@ -346,7 +346,7 @@ def extract_yaml(filepath):
         elif "measurement set" in info_text or "ms file" in info_text:
             dtype = "MS"
         # Handle 'File' dtype for file-like inputs and outputs
-        elif any(key in param_lower for key in ("image", "imagename", "model", "mask", "file", "fits", "outfile", "output")):
+        elif any(key in param_lower for key in ("image", "imagename", "model", "file", "fits", "outfile", "output")):
             dtype = "File"
         elif any(phrase in info_text for phrase in (
             "fits file", "image file", "file path", "mask image", "input file", "output file", "file name", "image name"
